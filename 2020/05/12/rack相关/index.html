@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>rack相关 | 把酒东风</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0. 文中涉及到的代码github地址 1. TCP&#x2F;IP 协议（搞清楚Socket） 应用层（web服务） 网络层，数据链路层，物理层 提供点到点的服务。 提供了一台主机到另一台主机之间的通信，不涉及程序或者进程的概念。不会保证数据传输的可靠性，不能说明主机之间那两个进程来通信   传输层 提供端到端端服务。 建立在点到点的通信端基础之上，完成应用程序（进程）之间的通信。 这里的端也就是套接字(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rack相关">
+<meta property="og:url" content="http://yoursite.com/2020/05/12/rack%E7%9B%B8%E5%85%B3/index.html">
+<meta property="og:site_name" content="把酒东风">
+<meta property="og:description" content="0. 文中涉及到的代码github地址 1. TCP&#x2F;IP 协议（搞清楚Socket） 应用层（web服务） 网络层，数据链路层，物理层 提供点到点的服务。 提供了一台主机到另一台主机之间的通信，不涉及程序或者进程的概念。不会保证数据传输的可靠性，不能说明主机之间那两个进程来通信   传输层 提供端到端端服务。 建立在点到点的通信端基础之上，完成应用程序（进程）之间的通信。 这里的端也就是套接字(">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://139.196.124.252///uploads/image/Article/43/cdc4dbbb-f98e-31d5-8270-3c37bf1c54e5.jpg">
+<meta property="og:image" content="http://139.196.124.252//uploads/image/Article/44/20170707145557633.jpeg">
+<meta property="article:published_time" content="2020-05-12T08:04:30.000Z">
+<meta property="article:modified_time" content="2020-05-12T08:40:12.432Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="rack rails">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://139.196.124.252///uploads/image/Article/43/cdc4dbbb-f98e-31d5-8270-3c37bf1c54e5.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="把酒东风" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">把酒东风</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-rack相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/12/rack%E7%9B%B8%E5%85%B3/" class="article-date">
+  <time datetime="2020-05-12T08:04:30.000Z" itemprop="datePublished">2020-05-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rack相关
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="0-文中涉及到的代码"><a href="#0-文中涉及到的代码" class="headerlink" title="0. 文中涉及到的代码"></a>0. 文中涉及到的代码</h3><p><a href="https://github.com/dongfeng676/mini-rack-learn" target="_blank" rel="noopener">github地址</a></p>
+<h3 id="1-TCP-IP-协议（搞清楚Socket）"><a href="#1-TCP-IP-协议（搞清楚Socket）" class="headerlink" title="1. TCP/IP 协议（搞清楚Socket）"></a>1. TCP/IP 协议（搞清楚Socket）</h3><ul>
+<li>应用层（web服务）</li>
+<li>网络层，数据链路层，物理层<ul>
+<li>提供点到点的服务。</li>
+<li>提供了一台主机到另一台主机之间的通信，不涉及程序或者进程的概念。不会保证数据传输的可靠性，不能说明主机之间那两个进程来通信</li>
+</ul>
+</li>
+<li>传输层<ul>
+<li>提供端到端端服务。</li>
+<li>建立在点到点的通信端基础之上，完成应用程序（进程）之间的通信。</li>
+<li>这里的端也就是套接字(socket), 所谓套接字，也就是一个通信端点，每个套接字都有一个套接字序号，包括主机的IP地址与一个主机端口号</li>
+<li>总之套接字Socket =（IP地址：端口号）</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-简单的scoket-通信程序"><a href="#2-简单的scoket-通信程序" class="headerlink" title="2. 简单的scoket 通信程序"></a>2. 简单的scoket 通信程序</h3><ul>
+<li><a href="https://github.com/dongfeng676/mini-rack-learn/tree/master/example1" target="_blank" rel="noopener">example1 目录</a></li>
+</ul>
+<h3 id="3-构建简单的request-response-模型"><a href="#3-构建简单的request-response-模型" class="headerlink" title="3. 构建简单的request/response 模型"></a>3. 构建简单的request/response 模型</h3><ul>
+<li>http 协议报文<ul>
+<li>请求<br><img src="http://139.196.124.252///uploads/image/Article/43/cdc4dbbb-f98e-31d5-8270-3c37bf1c54e5.jpg" alt="图例"><ul>
+<li>请求行<ul>
+<li>请求方法 请求URL HTTP协议以及版本</li>
+<li>例如 GET /orders/17 HTTP/1.1\r\n</li>
+</ul>
+</li>
+<li>请求头<ul>
+<li>其实就是header 格式为 属性名称:属性值。例如Accept Cache-Control Connection Cookie Host User-Agent</li>
+</ul>
+</li>
+<li>空行<ul>
+<li>发送回车符和换行符，通知服务器以下不再有请求头.</li>
+</ul>
+</li>
+<li>请求体<ul>
+<li>例如：name=tom&amp;password=1234</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>响应<br><img src="http://139.196.124.252//uploads/image/Article/44/20170707145557633.jpeg" alt="例子"><ul>
+<li>响应行<ul>
+<li>HTTP协议以及版本 状态码描述</li>
+<li>例如 HTTP/1.1 200 OK</li>
+</ul>
+</li>
+<li>响应头<ul>
+<li>多个属性组成</li>
+<li>例如Content-Type: application/json</li>
+</ul>
+</li>
+<li>空行</li>
+<li>响应体<ul>
+<li>真正的数据</li>
+<li><code>{code: 0, msg: &#39;success&#39;, data:{ a: &#39;1&#39;, b: &#39;2&#39;}}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-最小化的ruby-http-server"><a href="#4-最小化的ruby-http-server" class="headerlink" title="4. 最小化的ruby http server"></a>4. 最小化的ruby http server</h3><ul>
+<li><a href="https://github.com/dongfeng676/mini-rack-learn/tree/master/example2" target="_blank" rel="noopener">example2 目录</a></li>
+</ul>
+<h3 id="5-rack-简单介绍-https-rack-github-io"><a href="#5-rack-简单介绍-https-rack-github-io" class="headerlink" title="5. rack 简单介绍(https://rack.github.io/)"></a>5. rack 简单介绍(<a href="https://rack.github.io/" target="_blank" rel="noopener">https://rack.github.io/</a>)</h3><ul>
+<li>rack 是一个最小化的接口，介于基于rack的应用程序和基于rack的应用服务器.只要都遵循这个规则，就可以随意搭配使用。</li>
+<li>rake 应用程序rails Sinatra</li>
+<li>rake 应用服务区 webrick puma unicorn</li>
+<li>想要使用rack,需要提供一个对象：　这个对象可以调用call方法，可以接受一个 hash作为参数，需要返回一个数组,这个数组包含三部分．<ul>
+<li>一个http 相应代码</li>
+<li>一个hash的头部信息</li>
+<li>一个数组类型的响应主体</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/dongfeng676/mini-rack-learn/tree/master/example3" target="_blank" rel="noopener">example3 目录</a></p>
+<h3 id="6-rack-提供了那些基本的middleware"><a href="#6-rack-提供了那些基本的middleware" class="headerlink" title="6. rack 提供了那些基本的middleware"></a>6. rack 提供了那些基本的middleware</h3><ul>
+<li>x-runtime 请求消耗时间ruby-china 主请求</li>
+<li>etag http缓存，减少数据传输消耗的时间。在header中加入etag例如js文件，不需要每次都传输，只需要比较md5 的值即可。</li>
+<li>ConditionalGet 用于比较etag，返回304</li>
+<li>request 来源于env 简单看下代码.（lib/rack/request.rb）</li>
+</ul>
+<h3 id="6-rack-在rails-中的应用。"><a href="#6-rack-在rails-中的应用。" class="headerlink" title="6. rack 在rails 中的应用。"></a>6. rack 在rails 中的应用。</h3><ul>
+<li>rails middleware 查看都用了那些<ul>
+<li>在application.rb 中增加，减少。<ul>
+<li>config.middleware.insert_before</li>
+<li>config.middleware.use </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>config.ru  文件(rails s 的过程哪里使用到了此文件 <a href="https://ruby-china.github.io/rails-guides/initialization.html" target="_blank" rel="noopener">https://ruby-china.github.io/rails-guides/initialization.html</a>) </li>
+<li>rackup(<a href="http://rack.github.io/" target="_blank" rel="noopener">http://rack.github.io/</a>) 启动 config.ru，研究webrick是如何和应用关联起来的。<code>/Users/dongfeng/.rvm/gems/ruby-2.6.3@mega-crm-api/gems/rack-2.0.7/bin</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env ruby</span><br><span class="line">require &quot;rack&quot;</span><br><span class="line">Rack::Server.start</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以读下相关代码。<h3 id="7-WEBrick-原理留在以后再讲。"><a href="#7-WEBrick-原理留在以后再讲。" class="headerlink" title="7. WEBrick 原理留在以后再讲。"></a>7. WEBrick 原理留在以后再讲。</h3></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/12/rack%E7%9B%B8%E5%85%B3/" data-id="cka3p045s0002ygoncwyd7sib" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rack-rails/" rel="tag">rack rails</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/12/puma%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          puma原理解析
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/puma-rails/" rel="tag">puma rails</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rack-rails/" rel="tag">rack rails</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/puma-rails/" style="font-size: 10px;">puma rails</a> <a href="/tags/rack-rails/" style="font-size: 10px;">rack rails</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/12/puma%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/">puma原理解析</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/12/rack%E7%9B%B8%E5%85%B3/">rack相关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
